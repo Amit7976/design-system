@@ -7,27 +7,28 @@ import { CheckCircle, Info, AlertTriangle, XCircle } from "lucide-react";
 
 
 const defaultIcons: Record<string, React.ReactNode> = {
-    info: <Info className="text-blue-600 dark:text-blue-300" size={20} />,
-    success: <CheckCircle className="text-green-600 dark:text-green-300" size={20} />,
-    warning: <AlertTriangle className="text-yellow-600 dark:text-yellow-300" size={20} />,
-    error: <XCircle className="text-red-600 dark:text-red-300" size={20} />,
+    info: <Info className="text-blue-600" size={20} />,
+    success: <CheckCircle className="text-green-600" size={20} />,
+    warning: <AlertTriangle className="text-yellow-700" size={20} />,
+    error: <XCircle className="text-red-600" size={20} />,
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const variantClasses: Record<string, string> = {
-    info: "bg-blue-100 text-blue-800 border border-blue-200 dark:bg-blue-900 dark:text-blue-100 dark:border-blue-700",
-    success: "bg-green-100 text-green-800 border border-green-200 dark:bg-green-900 dark:text-green-100 dark:border-green-700",
-    warning: "bg-yellow-100 text-yellow-800 border border-yellow-200 dark:bg-yellow-900 dark:text-yellow-100 dark:border-yellow-700",
-    error: "bg-red-100 text-red-800 border border-red-200 dark:bg-red-900 dark:text-red-100 dark:border-red-700",
+    default: "bg-white text-black border border-gray-100",
+    info: "bg-blue-50 text-blue-500 border border-blue-200",
+    success: "bg-green-50 text-green-500 border border-green-200",
+    warning: "bg-yellow-50 text-yellow-600 border border-yellow-200",
+    error: "bg-red-50 text-red-500 border border-red-200",
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const sizeClasses = {
-    sm: "px-3 py-2 text-sm",
-    md: "px-4 py-2.5 text-base",
-    lg: "px-5 py-3 text-lg",
+    sm: "px-3 pt-4 pb-3.5 text-base",
+    md: "px-4 pt-5 pb-4 text-lg",
+    lg: "px-5 pt-6 pb-5 text-xl",
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -45,11 +46,12 @@ const alignClasses: Record<string, string> = {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export type ToastProps = {
-    variant?: "info" | "success" | "warning" | "error";
+    variant?: "default" | "info" | "success" | "warning" | "error";
     title?: string;
     description?: string;
     icon?: React.ReactNode;
     showIcon?: boolean;
+    showDescription?: boolean;
     size?: "sm" | "md" | "lg";
     align?:
     | "top-left"
@@ -71,6 +73,7 @@ export const Toast: React.FC<ToastProps> = ({
     description,
     icon,
     showIcon = true,
+    showDescription = true,
     size = "md",
     align = "top-center",
     duration = 5000,
@@ -92,7 +95,7 @@ export const Toast: React.FC<ToastProps> = ({
         <div
             role="alert"
             aria-live="polite"
-            className={`fixed z-50 flex items-start gap-3 rounded-xl shadow-md transition-all animate-fade-in
+            className={`fixed z-50 flex items-start gap-3 px-5 rounded-xl shadow-md transition-all min-w-96 animate-fade-in
         ${variantClasses[variant]} 
         ${sizeClasses[size]} 
         ${alignClasses[align]}`}
@@ -104,7 +107,11 @@ export const Toast: React.FC<ToastProps> = ({
             )}
             <div>
                 {title && <div className="font-semibold mb-1">{title}</div>}
-                {description && <div className="text-sm opacity-90">{description}</div>}
+                {showDescription && (
+                    <div className="mt-1">
+                        {description && <div className="text-sm opacity-90">{description}</div>}
+                    </div>
+                )}
             </div>
         </div>
     );

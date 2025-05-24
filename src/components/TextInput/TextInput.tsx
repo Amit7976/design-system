@@ -17,7 +17,7 @@ export type TextInputProps = {
     disabled?: boolean;
     error?: boolean;
     errorMessage?: string;
-    size?: "sm" | "md" | "lg";
+    size?: "sm" | "md" | "lg" | "xl" | "2xl";
     iconLeft?: React.ReactNode;
     iconRight?: React.ReactNode;
     className?: string;
@@ -45,13 +45,10 @@ export const TextInput: React.FC<TextInputProps> = ({
     ariaLabel,
 }) => {
     const baseStyles =
-        "w-full rounded-md border px-3 py-2 text-sm outline-none transition-all bg-white dark:bg-zinc-900";
-    const sizeStyles =
-        size === "sm"
-            ? "text-sm py-1.5"
-            : size === "lg"
-                ? "text-lg py-3"
-                : "text-base py-2";
+        "w-full rounded-md border outline-none transition-all bg-white dark:bg-zinc-900";
+    const sizeStyles = size === "sm" ? "text-sm py-1.5 px-3" : size === "lg" ? "text-lg py-2 px-4" : size === "xl" ? "text-xl py-2.5 px-5" : size === "2xl" ? "text-2xl py-3 px-6" : "text-base py-2 px-4";
+
+
     const borderStyles = error
         ? "border-red-500 text-red-600 placeholder:text-red-400 focus:ring-red-500 focus:border-red-500"
         : "border-gray-300 text-gray-900 placeholder:text-gray-400 focus:ring-blue-500 focus:border-blue-500 dark:border-zinc-700 dark:text-white dark:placeholder:text-zinc-500";

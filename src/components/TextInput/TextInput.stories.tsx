@@ -20,7 +20,7 @@ const meta: Meta<typeof TextInput> = {
     argTypes: {
         size: {
             control: "select",
-            options: ["sm", "md", "lg"],
+            options: ["sm", "md", "lg", "xl" , "2xl"],
         },
         error: {
             control: "boolean",
@@ -29,10 +29,10 @@ const meta: Meta<typeof TextInput> = {
             control: "boolean",
         },
         iconLeft: {
-            control: false,
+            control: "boolean",
         },
         iconRight: {
-            control: false,
+            control: "boolean",
         },
     },
     parameters: {
@@ -58,6 +58,7 @@ type Story = StoryObj<typeof TextInput>;
 
 export const Playground: Story = {
     args: {
+        iconLeft: <Search size={16} />,
         placeholder: "Type here...",
     },
 };

@@ -14,7 +14,7 @@ const meta: Meta<typeof Toast> = {
     argTypes: {
         variant: {
             control: "select",
-            options: ["info", "success", "error", "warning"],
+            options: ["default", "info", "success", "error", "warning"],
         },
         align: {
             control: "select",
@@ -34,6 +34,9 @@ const meta: Meta<typeof Toast> = {
         showIcon: {
             control: "boolean",
         },
+        showDescription: {
+            control: "boolean",
+        },
         duration: {
             control: "number",
             description: "Auto close time in milliseconds",
@@ -46,12 +49,13 @@ const meta: Meta<typeof Toast> = {
         },
     },
     args: {
-        variant: "info",
+        variant: "default",
         align: "top-right",
-        title: "Info",
+        title: "This is a Title",
         description: "This is an informational toast.",
-        size: "md",
+        size: "sm",
         showIcon: true,
+        showDescription: false,
         duration: 50000,
     },
     parameters: {

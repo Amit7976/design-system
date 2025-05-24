@@ -14,7 +14,7 @@ const meta: Meta<typeof Notification> = {
     argTypes: {
         variant: {
             control: "select",
-            options: ["info", "success", "error", "warning"],
+            options: ["default", "info", "success", "error", "warning"],
         },
         align: {
             control: "select",
@@ -29,7 +29,7 @@ const meta: Meta<typeof Notification> = {
         },
         size: {
             control: "select",
-            options: ["sm", "md", "lg"],
+            options: ["sm" , "md" , "lg" , "long_sm" , "long_md" , "long_lg"],
         },
         showIcon: {
             control: "boolean",
@@ -46,11 +46,11 @@ const meta: Meta<typeof Notification> = {
         },
     },
     args: {
-        variant: "info",
+        variant: "default",
         align: "top-right",
-        title: "Info",
+        title: "This is Title",
         description: "This is an informational Notification.",
-        size: "md",
+        size: "sm",
         showIcon: true,
         duration: 50000,
     },

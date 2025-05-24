@@ -39,6 +39,7 @@ function TextInputVariants() {
                       <TextInput size="sm" placeholder="Small size" className="mb-2" />
                       <TextInput size="md" placeholder="Medium size (default)" className="mb-2" />
                       <TextInput size="lg" placeholder="Large size" />
+                      <TextInput size="xl" placeholder="Large size" />
                   </div>
 
                   <div>
