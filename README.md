@@ -4,8 +4,8 @@ This is a modular, scalable **Design System** built using **React**, **TypeScrip
 
 ## 🌐 Hosted Versions
 
-- 🔗 **Main App (Vite + React)**: Deployed separately for user-facing component usage.
-- 🔗 **Storybook (Chromatic or Vercel)**: Deployed for interactive component documentation.
+- 🔗 **Main App (Vite + React)**: (https://design-system-assigment.netlify.app/)
+- 🔗 **Storybook (Chromatic or Vercel)**: (https://design-system-storybook-assignment-a.netlify.app)
 
 ---
 
@@ -56,7 +56,6 @@ This assignment demonstrates:
 
 - Each component supports variants and themes.
 - States: default, focus, error, disabled
-- Built with a11y-first approach
 
 ---
 
@@ -134,18 +133,10 @@ npm run storybook
 
 | App       | Link                           |
 | --------- | ------------------------------ |
-| Main App  | \[Your deployed Vite App URL]  |
-| Storybook | \[Your deployed Storybook URL] |
+| Main App  | https://design-system-assigment.netlify.app  |
+| Storybook | https://design-system-storybook-assignment-a.netlify.app |
 
 
-
----
-
-## 📸 Screenshots (Optional)
-- Typography in Light and Dark mode
-- Component States (Hover, Focus, Error)
-- Storybook interface preview
-- Toast behavior on button click
 
 ---
 
