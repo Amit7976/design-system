@@ -1,49 +1,61 @@
-import type { ReactNode, ElementType } from "react";
-import { typography } from "../../tokens/typography";
+import React from 'react';
+import {
+    sizeMap,
+    weightMap,
+    colorMap,
+    alignMap,
+    spacingMap,
+} from './tokens/typography';
 
-export type Variant =
-    | "h1"
-    | "h2"
-    | "h3"
-    | "h4"
-    | "h5"
-    | "h6"
-    | "paragraph"
-    | "caption"
-    | "label"
-    | "helper";
+type Size = keyof typeof sizeMap;
+type Weight = keyof typeof weightMap;
+type Color = keyof typeof colorMap;
+type Align = keyof typeof alignMap;
+type Spacing = keyof typeof spacingMap;
 
-export interface TypographyProps
-    extends React.HTMLAttributes<HTMLElement> {
-    variant: Variant;
-    children: ReactNode;
-    as?: ElementType;
+interface TypographyProps {
+    as?: React.ElementType;
+    size?: Size;
+    weight?: Weight;
+    color?: Color;
+    align?: Align;
+    spacing?: Spacing;
+    id?: string;
+    title?: string;
+    className?: string;
+    children: React.ReactNode;
+    variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "label" | "caption" | "helper";
+    darkMode?: boolean;
 }
 
-export const Typography = ({
-    variant,
+export const Typography: React.FC<TypographyProps> = ({
+    as = 'p',
+    variant = 'p',
+    size = 'base',
+    weight = 'normal',
+    color = 'primary',
+    align = 'left',
+    spacing = 'normal',
+    id,
+    title,
+    className = '',
     children,
-    as,
-    className = "",
-    ...rest
-}: TypographyProps) => {
-    let defaultTag: ElementType = "p";
-
-    if (variant === "h1") defaultTag = "h1";
-    else if (variant === "h2") defaultTag = "h2";
-    else if (variant === "h3") defaultTag = "h3";
-    else if (variant === "h4") defaultTag = "h4";
-    else if (variant === "h5") defaultTag = "h5";
-    else if (variant === "h6") defaultTag = "h6";
-    else if (variant === "caption") defaultTag = "span";
-    else if (variant === "label") defaultTag = "label";
-    else if (variant === "helper") defaultTag = "small";
-
-    const Tag = as || defaultTag;
-    const classes = typography[variant] || "";
+}) => {
+    const Tag = as;
+    const classes = [
+        variant,
+        sizeMap[size],
+        weightMap[weight],
+        colorMap[color],
+        alignMap[align],
+        spacingMap[spacing],
+        className,
+    ]
+        .filter(Boolean)
+        .join(' ');
 
     return (
-        <Tag className={`${classes} ${className}`} {...rest}>
+        <Tag id={id} title={title} className={classes}>
             {children}
         </Tag>
     );
