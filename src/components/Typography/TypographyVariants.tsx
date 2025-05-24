@@ -1,10 +1,17 @@
-import { Typography } from './components/Typography';
+import { Typography } from "./Typography";
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 const sizes = ['xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl'] as const;
 const weights = ['thin', 'light', 'normal', 'medium', 'semibold', 'bold', 'black'] as const;
 const colors = ['primary', 'secondary', 'tertiary', 'white', 'black', 'gray-900', 'gray-700', 'gray-500', 'gray-300'] as const;
 const alignments = ['left', 'center', 'right', 'justify'] as const;
 const spacings = ['tight', 'normal', 'wide', 'wider', 'widest'] as const;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const TypographyVariants = () => {
     return (

@@ -2,6 +2,11 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Checkbox } from "./Checkbox";
 import "../../App.css";
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 const meta: Meta<typeof Checkbox> = {
     title: "Data Entry/Checkbox",
     component: Checkbox,
@@ -14,9 +19,8 @@ const meta: Meta<typeof Checkbox> = {
         docs: {
             description: {
                 component: `
-The **Checkbox** component supports multiple sizes, states, accessibility, theming, and keyboard navigation.
-
-👉 To see dark mode in action, toggle your browser theme or use the 'dark' background in Storybook.
+                The **Checkbox** component supports multiple sizes, states, accessibility, theming, and keyboard navigation.
+                👉 To see dark mode in action, toggle your browser theme or use the 'dark' background in Storybook.
         `,
             },
         },
@@ -33,8 +37,16 @@ The **Checkbox** component supports multiple sizes, states, accessibility, themi
     },
 };
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 export default meta;
 type Story = StoryObj<typeof Checkbox>;
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 export const Playground: Story = {
     args: {
@@ -47,6 +59,10 @@ export const Playground: Story = {
     },
 };
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 export const Sizes: Story = {
     render: () => (
         <div className="flex flex-col gap-3">
@@ -56,6 +72,10 @@ export const Sizes: Story = {
         </div>
     ),
 };
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 export const States: Story = {
     render: () => (
@@ -68,6 +88,10 @@ export const States: Story = {
         </div>
     ),
 };
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 export const DarkModeExample: Story = {
     args: {

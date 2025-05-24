@@ -1,12 +1,24 @@
 import { AlertCircle, Search } from "lucide-react";
 import { useState } from "react";
-import './App.css';
-import { TextInput } from './components/TextInput/TextInput';
+import '../../App.css';
+import { TextInput } from './TextInput';
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 function TextInputVariants() {
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     const [darkMode, setDarkMode] = useState(false);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
   return (
     <>
-          <div className={`${darkMode ? "dark bg-gray-900 text-white" : "bg-white text-black"} min-h-screen p-8 space-y-8 transition-colors duration-300`}>
+          <div className={`${darkMode ? "dark bg-neutral-900 text-white" : "bg-white text-black"} min-h-screen p-8 space-y-8 transition-colors duration-300`}>
               <button
                   onClick={() => setDarkMode(!darkMode)}
                   className="mb-8 px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400"

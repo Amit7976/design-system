@@ -1,12 +1,22 @@
-import React, { useState } from "react";
-import { Checkbox } from "./components/Checkbox/Checkbox";
+import { useState } from "react";
+import { Checkbox } from "./Checkbox";
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 export default function CheckboxVariant() {
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     const [darkMode, setDarkMode] = useState(false);
     const toggleDarkMode = () => setDarkMode(!darkMode);
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     return (
-        <div className={`${darkMode ? "dark bg-gray-900 text-white" : "bg-white text-black"} min-h-screen p-8 space-y-8 transition-colors duration-300`}>
+        <div className={`${darkMode ? "dark bg-neutral-900 text-white" : "bg-white text-black"} min-h-screen p-8 space-y-8 transition-colors duration-300`}>
             <div className="min-h-screen p-6 transition-colors">
                 <div className="flex justify-between items-center mb-6">
                     <h1 className="text-2xl font-bold">Checkbox Component Demo</h1>

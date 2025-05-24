@@ -1,12 +1,19 @@
 import React from "react";
 import { CheckCircle, Info, AlertTriangle, XCircle } from "lucide-react";
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 const defaultIcons: Record<string, React.ReactNode> = {
     info: <Info className="text-blue-600 dark:text-blue-300" size={20} />,
     success: <CheckCircle className="text-green-600 dark:text-green-300" size={20} />,
     warning: <AlertTriangle className="text-yellow-600 dark:text-yellow-300" size={20} />,
     error: <XCircle className="text-red-600 dark:text-red-300" size={20} />,
 };
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const variantClasses: Record<string, string> = {
     info: "bg-blue-100 text-blue-800 border border-blue-200 dark:bg-blue-900 dark:text-blue-100 dark:border-blue-700",
@@ -15,11 +22,15 @@ const variantClasses: Record<string, string> = {
     error: "bg-red-100 text-red-800 border border-red-200 dark:bg-red-900 dark:text-red-100 dark:border-red-700",
 };
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 const sizeClasses = {
     sm: "px-3 py-2 text-sm",
     md: "px-4 py-2.5 text-base",
     lg: "px-5 py-3 text-lg",
 };
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const alignClasses: Record<string, string> = {
     "top-left": "top-4 left-4",
@@ -30,6 +41,8 @@ const alignClasses: Record<string, string> = {
     "bottom-right": "bottom-4 right-4",
     center: "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
 };
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export type NotificationProps = {
     variant?: "info" | "success" | "warning" | "error";
@@ -49,6 +62,8 @@ export type NotificationProps = {
     duration?: number;
     onClose?: () => void;
 };
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const Notification: React.FC<NotificationProps> = ({
     variant = "info",

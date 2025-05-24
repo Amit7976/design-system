@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Toast } from "./components/Toast/Toast";
+import { Notification } from "./Notification";
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 const variants = ["info", "success", "warning", "error"] as const;
 const aligns = [
@@ -12,29 +17,33 @@ const aligns = [
 ] as const;
 const sizes = ["sm", "md", "lg"] as const;
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 type Variant = (typeof variants)[number];
 type Align = (typeof aligns)[number];
 type Size = (typeof sizes)[number];
 
-export const ToastVariantDemo: React.FC = () => {
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export const NotificationVariant: React.FC = () => {
     const [variant, setVariant] = useState<Variant>("success");
     const [align, setAlign] = useState<Align>("top-right");
     const [size, setSize] = useState<Size>("lg");
     const [showIcon, setShowIcon] = useState(true);
-    const [showToast, setShowToast] = useState(true);
+    const [showNotification, setShowNotification] = useState(true);
     const [showDescription, setShowDescription] = useState(false);
 
-    // Remove toast after timeout
+    // Remove Notification after timeout
     useEffect(() => {
-        if (showToast) {
-            const timer = setTimeout(() => setShowToast(false), 3000);
+        if (showNotification) {
+            const timer = setTimeout(() => setShowNotification(false), 3000);
             return () => clearTimeout(timer);
         }
-    }, [showToast]);
+    }, [showNotification]);
 
-    const triggerToast = () => {
-        setShowToast(false); // Remove existing toast instantly
-        setTimeout(() => setShowToast(true), 10); // Re-render toast
+    const triggerNotification = () => {
+        setShowNotification(false); // Remove existing Notification instantly
+        setTimeout(() => setShowNotification(true), 10); // Re-render Notification
     };
 
     return (
@@ -48,7 +57,7 @@ export const ToastVariantDemo: React.FC = () => {
                             key={v}
                             onClick={() => {
                                 setVariant(v);
-                                triggerToast();
+                                triggerNotification();
                             }}
                             className={`py-2 text-white transition border-2 px-10 rounded-lg ${variant === v ? "bg-orange-500" : "bg-transparent"
                                 }`}
@@ -68,7 +77,7 @@ export const ToastVariantDemo: React.FC = () => {
                             key={a}
                             onClick={() => {
                                 setAlign(a);
-                                triggerToast();
+                                triggerNotification();
                             }}
                             className={`py-2 text-white transition border-2 px-10 rounded-lg ${align === a ? "bg-orange-500" : "bg-transparent"
                                 }`}
@@ -88,7 +97,7 @@ export const ToastVariantDemo: React.FC = () => {
                             key={s}
                             onClick={() => {
                                 setSize(s);
-                                triggerToast();
+                                triggerNotification();
                             }}
                             className={`py-2 text-white transition border-2 px-10 rounded-lg ${size === s ? "bg-orange-500" : "bg-transparent"
                                 }`}
@@ -106,7 +115,7 @@ export const ToastVariantDemo: React.FC = () => {
                     <button
                         onClick={() => {
                             setShowIcon(true);
-                            triggerToast();
+                            triggerNotification();
                         }}
                         className={`py-2 text-white transition border-2 px-10 rounded-lg ${showIcon ? "bg-orange-500" : "bg-transparent"
                             }`}
@@ -116,7 +125,7 @@ export const ToastVariantDemo: React.FC = () => {
                     <button
                         onClick={() => {
                             setShowIcon(false);
-                            triggerToast();
+                            triggerNotification();
                         }}
                         className={`py-2 text-white transition border-2 px-10 rounded-lg ${!showIcon ? "bg-orange-500" : "bg-transparent"
                             }`}
@@ -132,7 +141,7 @@ export const ToastVariantDemo: React.FC = () => {
                     <button
                         onClick={() => {
                             setShowDescription(true);
-                            triggerToast();
+                            triggerNotification();
                         }}
                         className={`py-2 text-white transition border-2 px-10 rounded-lg ${showDescription ? "bg-orange-500" : "bg-transparent"
                             }`}
@@ -142,7 +151,7 @@ export const ToastVariantDemo: React.FC = () => {
                     <button
                         onClick={() => {
                             setShowDescription(false);
-                            triggerToast();
+                            triggerNotification();
                         }}
                         className={`py-2 text-white transition border-2 px-10 rounded-lg ${!showDescription ? "bg-orange-500" : "bg-transparent"
                             }`}
@@ -152,17 +161,17 @@ export const ToastVariantDemo: React.FC = () => {
                 </div>
             </div>
 
-            {/* Active Toast */}
-            {showToast && (
-                <Toast
+            {/* Active Notification */}
+            {showNotification && (
+                <Notification
                     variant={variant}
                     align={align}
-                    title={`${variant.charAt(0).toUpperCase() + variant.slice(1)} Toast`}
+                    title={`${variant.charAt(0).toUpperCase() + variant.slice(1)} Notification`}
                     description={showDescription ? `Size: ${size}, Icon: ${showIcon ? "Yes" : "No"}` : undefined}
                     showIcon={showIcon}
                     size={size}
                     duration={3000}
-                    onClose={() => setShowToast(false)}
+                    onClose={() => setShowNotification(false)}
                 />
             )}
         </div>
